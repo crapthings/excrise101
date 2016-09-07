@@ -10,7 +10,7 @@ const postFilter = ({ posts, li }) => <div>
     </li>
     {li.map((i, index) => <li key={index}>
       <a href="#">
-        {Config.getLabel('PostCategory', i.label)} {i.count}
+        {Config.mappedLabels.PostCategory[i.label]} {i.count}
       </a>
     </li>)}
   </ul>
@@ -19,7 +19,7 @@ const postFilter = ({ posts, li }) => <div>
 const postFilterTracker = (props, onData) => {
   const posts = Posts.find().fetch()
 
-  const li = _.chain(posts)
+  const li = _(posts)
     .countBy('category')
     .map(remap)
     .value()

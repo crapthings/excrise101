@@ -9,7 +9,7 @@ const posts = ({ posts }) => <div>
 </div>
 
 const postsTracker = (props, onData) => {
-  const posts = Posts.find({}, DefaultSortOptions).fetch()
+  const posts = Posts.find({}, Config.DefaultSortOptions).fetch()
   onData(null, { posts })
 }
 
